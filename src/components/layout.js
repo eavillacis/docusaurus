@@ -1,8 +1,8 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Sidebar from './Sidebar'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -18,19 +18,22 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
-          <main>{children}</main>
-          <footer>
-            footer is here
-          </footer>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-4">
+              <Sidebar />
+            </div>
+            <div className="col-xs-8">
+              <main>{children}</main>
+              <footer>
+                footer is here
+              </footer>
+            </div>
+          </div>
         </div>
       </>
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout
