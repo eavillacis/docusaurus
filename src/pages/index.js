@@ -1,18 +1,42 @@
 import React from 'react'
-// import ReactJson from 'react-json-view'
-// import axios from 'axios'
-// import styled from 'styled-components'
 
-import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import { Link, graphql } from 'gatsby'
 
-export default function IndexPage() {
+export default ({ data }) => {
   return (
-    <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-      <div>
-        <span>hey</span>
-      </div>
-    </Layout>
+    <div>
+      <h1>Amazing Pandas Eating Things</h1>
+      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link to={node.fields.slug}>
+            <h3>
+              {node.frontmatter.title} <span>— {node.frontmatter.date}</span>
+            </h3>
+            <p>{node.excerpt}</p>
+          </Link>
+        </div>
+      ))}
+    </div>
   )
 }
+
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
