@@ -5,6 +5,7 @@ import Header from '../Header'
 import Sidebar from '../Sidebar'
 
 import { Wrapper } from './style'
+import { GlobalStyle } from '../../styles/reset.css'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -19,6 +20,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <GlobalStyle />
         <Header siteTitle={data.site.siteMetadata.title} />
         <Wrapper>
           <div>
