@@ -1,14 +1,12 @@
 import React from 'react'
-import { Link } from 'gatsby'
+
+import { HeaderCustom } from './style'
+import { LinkCustom } from '../../styles/global'
 
 const Header = ({ siteTitle }) => (
-  <header>
-    <div>
-      <h1>
-        <Link to="/">{siteTitle}</Link>
-      </h1>
-    </div>
-  </header>
+  <HeaderCustom>
+    <LinkCustom to="/">{siteTitle}</LinkCustom>
+  </HeaderCustom>
 )
 
 export default Header
