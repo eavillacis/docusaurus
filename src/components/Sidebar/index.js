@@ -13,6 +13,9 @@ export default function Sidebar() {
             totalCount
             edges {
               node {
+                frontmatter {
+                  title
+                }
                 fields {
                   slug
                 }
@@ -27,7 +30,7 @@ export default function Sidebar() {
           {data.allMarkdownRemark.edges.map(({ node }) => (
             <div key={node.excerpt}>
               <LinkCustom to={node.fields.slug}>
-                <Nav>{node.excerpt}</Nav>
+                <Nav>{node.frontmatter.title}</Nav>
               </LinkCustom>
             </div>
           ))}
