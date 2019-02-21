@@ -9,7 +9,7 @@ const Blockquote = styled.blockquote`
   float: right;
   font-size: 14px;
   margin: 0;
-  width: 50%;
+  width: 40%;
 `
 
 export default Blockquote

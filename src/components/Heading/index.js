@@ -13,7 +13,7 @@ export const Heading1 = styled.h1`
   margin-bottom: 21px;
   margin-right: 50%;
   margin-top: 2em;
-  width: 50%;
+  width: 60%;
   &:first-child {
     margin-top: 0;
     border-top-width: 0;

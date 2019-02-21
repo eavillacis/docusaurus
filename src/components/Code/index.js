@@ -4,7 +4,7 @@ import Paragraph from '../Paragraph'
 import Aside from '../Aside'
 
 const Code = styled.code`
-  color: #eee;
+  color: #797979;
   font-family: monospace;
   hyphens: auto;
   line-height: 1.5;

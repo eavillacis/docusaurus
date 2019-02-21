@@ -2,44 +2,35 @@
 title: Countries
 ---
 
-# Kittens
+# Geographic
 
-## Get All Kittens
+## Get All Countries
 
-> The above command returns JSON structured like this:
+> The command should be run as in the following example:
 
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "user_code":396,
+    "app_key":"1656d700707ad9a77f737e5df3db088a"
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all countries.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST https://api-box-test.skypostal.com/wcf-services/service-geographic.svc/geographic/geographic-get-countries`
 
 ### Query Parameters
 
-| Parameter    | Default | Description                                                                      |
-| ------------ | ------- | -------------------------------------------------------------------------------- |
-| include_cats | false   | If set to true, the result will also include cats. asdasd                        |
-| available    | true    | If set to false, the result will include kittens that have already been adopted. |
+| Parameter    | Value          | Description                                                                      |
+| ------------ | -------------- | -------------------------------------------------------------------------------- |
+| user_code    | 396            | This is the user code provided by Skypostal.                                     |
+| app_key      | `meowmeowmeow` | This is the app key provided by Skypostal.                                       |
+
 
 <aside class="warning">
-Remember — a happy kitten is an authenticated kitten!
+  Remember — Make sure to replace "meowmeowmeow" with your API key.
 </aside>

@@ -2,24 +2,25 @@ import React from 'react'
 import { SideNav, Nav } from 'react-sidenav'
 
 import { LinkCustom, Title } from '../../styles/global'
+import { UlCustom, LiCustom, SideNavCustom, NavCustom } from './style'
 
 import routes from '../../routes'
 
 export default function Sidebar() {
   return (
-    <SideNav>
+    <SideNavCustom>
       {routes.map(route => (
-        <ul key={route.name}>
-          <Title> {route.name}</Title>
+        <UlCustom key={route.name}>
+          <Title>{route.name}</Title>
           {route.children.map(child => (
-            <li key={child.name}>
+            <LiCustom key={child.name}>
               <LinkCustom to={child.path}>
-                <Nav>{child.name}</Nav>
+                <NavCustom>{child.name}</NavCustom>
               </LinkCustom>
-            </li>
+            </LiCustom>
           ))}
-        </ul>
+        </UlCustom>
       ))}
-    </SideNav>
+    </SideNavCustom>
   )
 }

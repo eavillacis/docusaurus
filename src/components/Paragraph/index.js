@@ -5,7 +5,7 @@ const Paragraph = styled.p`
   display: block;
   box-sizing: border-box;
   padding: 0 28px;
-  width: 50%;
+  width: 60%;
   ${Blockquote} & {
     width: 100%;
   }

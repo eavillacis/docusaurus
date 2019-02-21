@@ -11,7 +11,7 @@ const Div = styled.div`
   overflow: auto;
   -webkit-text-size-adjust: 100%;
   padding: 2em 28px;
-  width: 50%;
+  width: 40%;
 `
 
 export default Div

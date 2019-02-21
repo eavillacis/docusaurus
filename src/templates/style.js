@@ -24,5 +24,5 @@ export const CodeBox = styled.div`
   position: absolute;
   right: 0;
   top: 0;
-  width: 50%;
+  width: 40%;
 `
