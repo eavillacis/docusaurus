@@ -9,14 +9,16 @@ export default function Sidebar() {
   return (
     <SideNav>
       {routes.map(route => (
-        <React.Fragment key={route.name}>
-          <Title>{route.name}</Title>
+        <ul key={route.name}>
+          <Title> {route.name}</Title>
           {route.children.map(child => (
-            <LinkCustom to={child.path} key={child.name}>
-              <Nav>{child.name}</Nav>
-            </LinkCustom>
+            <li key={child.name}>
+              <LinkCustom to={child.path}>
+                <Nav>{child.name}</Nav>
+              </LinkCustom>
+            </li>
           ))}
-        </React.Fragment>
+        </ul>
       ))}
     </SideNav>
   )
