@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from '../Header'
 import Sidebar from '../Sidebar'
 
-import { Wrapper, SidebarWrapper, PageWrapper, Main, Footer } from './style'
+import { Wrapper, SidebarWrapper, PageWrapper, Main } from './style'
 import { GlobalStyle } from '../../styles/reset.css'
 
 const Layout = ({ children }) => (
@@ -28,7 +28,6 @@ const Layout = ({ children }) => (
           </SidebarWrapper>
           <PageWrapper>
             <Main>{children}</Main>
-            <Footer>footer is here</Footer>
           </PageWrapper>
         </Wrapper>
       </>

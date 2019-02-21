@@ -2,19 +2,15 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
+import renderNodes from './node-renderer'
+import { Wrapper, Content, CodeBox } from './style'
 
-import { Wrapper, InformationWrapper } from './style'
-
-export default ({ data }) => {
-  const {
-    post
-    // frontmatter
-  } = data.markdownRemark
+export default ({ data: { content } }) => {
   return (
     <Layout>
       <Wrapper>
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-        <InformationWrapper>hey</InformationWrapper>
+        <CodeBox />
+        <Content>{renderNodes(content.htmlAst.children)}</Content>
       </Wrapper>
     </Layout>
   )
@@ -22,8 +18,12 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    content: markdownRemark(fields: { slug: { eq: $slug } }) {
+      htmlAst
+      headings {
+        value
+        depth
+      }
       frontmatter {
         title
       }

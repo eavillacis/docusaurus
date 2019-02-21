@@ -6,3 +6,7 @@ export const LinkCustom = styled(Link)`
   color: white;
   text-decoration: none;
 `
+
+export const Title = styled.span`
+  color: white;
+`

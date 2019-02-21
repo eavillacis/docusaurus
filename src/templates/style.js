@@ -1,8 +1,28 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  background-color: #f3f7f9;
+  display: block;
+  position: relative;
+  z-index: 10;
+  height: auto;
+  min-height: 100%;
+  width: 100%;
 `
 
-export const InformationWrapper = styled.div``
+export const Content = styled.div`
+  display: block;
+  position: relative;
+  z-index: 30;
+`
+
+export const CodeBox = styled.div`
+  background-color: #2e3336;
+  bottom: 0;
+  display: block;
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+`
