@@ -21,8 +21,8 @@ const ResponseWrapper = styled.div`
 
 export default class IndexPage extends React.Component {
   state = {
-    userCode : "396",
-    appKey: "1656d700707ad9a77f737e5df3db088a",
+    user_code : 396,
+    app_key: "1656d700707ad9a77f737e5df3db088a",
     response: {
       test: "test1",
       test2: "test2",
@@ -30,30 +30,28 @@ export default class IndexPage extends React.Component {
   }
 
   handleUserCodeChange = (e) => {
-    this.setState({userCode: e.target.value})
+    this.setState({user_code: e.target.value})
   }
 
   handleAppKeyChange = (e) => {
-    this.setState({appKey: e.target.value})
+    this.setState({app_key: e.target.value})
   }
 
   handleTryItClick = (e) => {
     e.preventDefault()
 
-    const {userCode, appKey} = this.state
-    console.log("hey try it")
-    console.log("userCode", userCode)
-    console.log("appKey", appKey)
+    const {user_code, app_key} = this.state
 
-    axios.post('https://api-box-test.skypostal.com/wcf-services/service-geographic.svc/geographic/geographic-get-countries', { userCode, appKey})
+    axios.post('https://api-box-test.skypostal.com/wcf-services/service-geographic.svc/geographic/geographic-get-countries', { user_code, app_key })
       .then(res => {
         console.log(res);
         console.log(res.data);
+        this.setState({response: res.data})
     })
   }
 
   render(){
-    const {userCode, appKey, response} = this.state
+    const {user_code, app_key, response} = this.state
     return(
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
@@ -66,20 +64,20 @@ export default class IndexPage extends React.Component {
               <Form>
                   <span>User Code</span>
                   <br></br>
-                  <input type="text" value={userCode} onChange={this.handleUserCodeChange}></input>
+                  <input type="text" value={user_code} onChange={this.handleUserCodeChange}></input>
                   <br></br>
                   <span>App Key</span>
                   <br></br>
-                  <input type="text" value={appKey} onChange={this.handleAppKeyChange}></input>
+                  <input type="text" value={app_key} onChange={this.handleAppKeyChange}></input>
                   <br></br>
               </Form>
               <BodyWrapper>
                 <ReactJson name='body' enableClipboard={false} src={{
-                  userCode,
-                  appKey
+                  user_code,
+                  app_key
                 }} />
               </BodyWrapper>
-              
+
               <button type="submit" onClick={this.handleTryItClick}>try it!</button>
               <ResponseWrapper>
                 <ReactJson name='response' enableClipboard={false} src={response} theme="monokai"/>
@@ -91,7 +89,3 @@ export default class IndexPage extends React.Component {
     )
   }
 }
-
-
-
-
